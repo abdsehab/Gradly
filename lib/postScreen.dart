@@ -100,7 +100,7 @@ class _UserInfoHeader extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 24,
-            backgroundImage: AssetImage('Images/propic.jpeg'),
+            backgroundImage: AssetImage('assets/images/propic.jpeg'),
           ),
           const SizedBox(width: 12),
           const Text(
