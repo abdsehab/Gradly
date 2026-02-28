@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Center(
-                    child: Image.asset('Images/logo.png', ),
+                    child: Image.asset('assets/images/logo.png', ),
                   ),
                 ),
               ],
