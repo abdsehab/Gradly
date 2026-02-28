@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradly/postScreen.dart';
+import 'package:gradly/chatScreen.dart.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Gradly',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: CreatePostScreen(),
+      home: ChatListScreen(),
     );
   }
 }
