@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradly/chatScreen.dart';
 import 'package:gradly/postScreen.dart';
 import 'package:gradly/splash_screen.dart';
 
