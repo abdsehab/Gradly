@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 import 'login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class RegistrationScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Title
+                // Branding
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -48,7 +49,7 @@ class RegistrationScreen extends StatelessWidget {
                     const Text(
                       'Gradly',
                       style: TextStyle(
-                        fontSize: 24, // Sized slightly down to keep focus on "Create Account"
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2D2D2D),
                       ),
@@ -58,7 +59,7 @@ class RegistrationScreen extends StatelessWidget {
 
                 const SizedBox(height: 28),
 
-                // 2. Title
+                // Title
                 const Text(
                   'Create Account',
                   style: TextStyle(
@@ -160,7 +161,13 @@ class RegistrationScreen extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      // Logic for registration
+                      // Navigate to the Home Screen
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
@@ -181,7 +188,7 @@ class RegistrationScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
 
-                // Link back to Login
+                // Back to Login Screen
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
