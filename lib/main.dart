@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gradly/chatScreen.dart';
-import 'package:gradly/login_screen.dart';
-import 'package:gradly/postScreen.dart';
-import 'package:gradly/reactions_screen.dart';
 import 'package:gradly/splash_screen.dart';
 
 void main() {
@@ -19,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Gradly',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
