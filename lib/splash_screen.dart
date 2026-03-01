@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
+import 'login_screen.dart';
 import 'dart:async';
 
 Color myColor = Color(0xFFFF7B00);
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+          pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child,);
           },
@@ -74,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Center(
-                    child: Image.asset('assets/images/logo.png', ),
+                    child: Image.asset('assets/images/logo.png',),
                   ),
                 ),
               ],
