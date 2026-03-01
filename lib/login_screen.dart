@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Logo and Name
+                // Branding
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
