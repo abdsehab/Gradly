@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String name = 'Naimul Islam';
+    final String name = 'Sadnan Samim';
     final String headline = 'Student at Ahsanullah University of Science and Technology';
     final String location = 'Dhaka, Bangladesh';
     final String connections = '500+';
