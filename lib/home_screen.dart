@@ -9,6 +9,8 @@ import 'package:gradly/chatScreen.dart';
 import 'package:gradly/reactions_screen.dart';
 import 'package:gradly/NavListScreen.dart';
 
+import 'alert_screen.dart';
+
 const Color primaryColor = Color(0xFFFD6220);
 const Color textDark = Color(0xFF11120D);
 const Color textLight = Color(0xFF888888);
@@ -114,7 +116,7 @@ class _HomePageState extends State<HomePage> {
               currentIndex: _selectedIndex,
               onTap: (index) {
                 if (index == 2) { Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())); return; }
-                if (index == 3) { Navigator.push(context, MaterialPageRoute(builder: (_) => const ReactionsScreen())); return; }
+                if (index == 3) { Navigator.push(context, MaterialPageRoute(builder: (_) => const AlertsScreen())); return; }
                 if (index == 4) { Navigator.push(context, MaterialPageRoute(builder: (_) => const ChatListScreen())); return; }
                 setState(() => _selectedIndex = index);
               },
