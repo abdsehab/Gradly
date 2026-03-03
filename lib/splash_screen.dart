@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 import 'dart:async';
 
-Color myColor = Color(0xFFFF7B00);
+Color myColor = Color(0xFFFD6220);
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   height: 180,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xFFFF7B00),
+                    color: Color(0xFFFD6220),
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Center(

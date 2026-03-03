@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradly/searchResult_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -24,6 +25,7 @@ class SearchScreen extends StatelessWidget {
             ),
             child: TextField(
               autofocus: true,
+              onSubmitted: (_) => Navigator.push(context, MaterialPageRoute(builder: (_) => SearchResultScreen())),
               decoration: InputDecoration(
                 fillColor: Colors.white, filled: true,
                 hintText: 'Type to search...', hintStyle: TextStyle(color: Colors.black38),
