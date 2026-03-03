@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gradly/postScreen.dart';
+import 'package:gradly/profile_screen.dart';
 import 'package:gradly/search_screen.dart';
 import 'package:gradly/comments_screen.dart';
 import 'package:gradly/connect_screen.dart';
@@ -62,7 +63,11 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
             child: Row(children: [
-              CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+              GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
+                child:
+                CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+              ),
               SizedBox(width: 10),
               Expanded(
                 child: GestureDetector(

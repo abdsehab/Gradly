@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 import 'dart:async';
 
-Color myColor = Color(0xFFFD6220);
+const primaryOrange = Color(0xFFFD6220);
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: const Color(0xFFFFFFFF),
+        color: Colors.white,
       ),
     );
   }
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor,
+      backgroundColor: primaryOrange,
       body: Center(
         child: AnimatedBuilder(animation: _controller, builder: (context, child) {
             return Stack(
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   height: 180,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xFFFD6220),
+                    color: primaryOrange,
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Center(
