@@ -8,7 +8,7 @@ class SearchResultScreen extends StatefulWidget {
 }
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
-  static const primaryOrange = Color(0xFFFF7B00);
+  static const primaryOrange = Color(0xFFFD6220);
   static const darkText = Color(0xFF2D2D2D);
   static const greyFill = Color(0xFFF4F5F7);
 
