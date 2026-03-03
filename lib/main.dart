@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:gradly/postScreen.dart';
-import 'home_screen.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFFF2F2F2),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), // Sets the color scheme.
       ),
-      home: HomePage(), // Sets the initial screen of the app.
+      home: SplashScreen(), // Sets the initial screen of the app.
     );
   }
 }

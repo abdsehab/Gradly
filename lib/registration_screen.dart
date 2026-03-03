@@ -7,7 +7,7 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const primaryOrange = Color(0xFFFF7B00);
+    const primaryOrange = Color(0xFFFD6220);
     const lightOrange = Color(0xFFFF9E40);
     const darkText = Color(0xFF2D2D2D);
     const greyFill = Color(0xFFF4F5F7);
