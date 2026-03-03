@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gradly/postScreen.dart';
+import 'package:gradly/profile_screen.dart';
 import 'package:gradly/search_screen.dart';
 import 'package:gradly/comments_screen.dart';
 import 'package:gradly/connect_screen.dart';
+import 'package:gradly/chatScreen.dart';
+import 'package:gradly/reactions_screen.dart';
+import 'package:gradly/NavListScreen.dart';
 
 const Color primaryColor = Color(0xFFFD6220);
 const Color textDark = Color(0xFF11120D);
@@ -33,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           child: Text('Gradly', style: TextStyle(color: primaryColor, fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.5)),
         ),
         title: GestureDetector(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SearchScreen())),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SearchScreen())),
           child: Container(
             height: 40,
             decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), border: Border.all(color: Colors.black12)),
@@ -47,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const NavListScreen())),
             icon: SvgPicture.asset('assets/icons/nav2.svg', height: 40, width: 40),
           ),
         ],
@@ -59,11 +63,15 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
             child: Row(children: [
-              CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+              GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
+                child:
+                CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+              ),
               SizedBox(width: 10),
               Expanded(
                 child: GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => CreatePostScreen())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                     decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(25), border: Border.all(color: Colors.black12)),
@@ -90,7 +98,7 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
-            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.15), blurRadius: 20, offset: Offset(0, 8))],
+            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.99), blurRadius: 50, offset: Offset(0, 8))],
           ),
           child: Theme(
             data: Theme.of(context).copyWith(
@@ -105,7 +113,9 @@ class _HomePageState extends State<HomePage> {
               elevation: 0,
               currentIndex: _selectedIndex,
               onTap: (index) {
-                if (index == 2) { Navigator.push(context, MaterialPageRoute(builder: (_) => CreatePostScreen())); return; }
+                if (index == 2) { Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())); return; }
+                if (index == 3) { Navigator.push(context, MaterialPageRoute(builder: (_) => const ReactionsScreen())); return; }
+                if (index == 4) { Navigator.push(context, MaterialPageRoute(builder: (_) => const ChatListScreen())); return; }
                 setState(() => _selectedIndex = index);
               },
               type: BottomNavigationBarType.fixed,
@@ -193,8 +203,8 @@ class PostCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _ActionButton(icon: Icons.favorite_border, label: 'Likes', count: '120k'),
-                  _ActionButton(icon: Icons.chat_bubble_outline, label: 'Comment', count: '25', onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => CommentsScreen()))),
+                  _ActionButton(icon: Icons.favorite_border, label: 'Likes', count: '120k', onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ReactionsScreen()))),
+                  _ActionButton(icon: Icons.chat_bubble_outline, label: 'Comment', count: '25', onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CommentsScreen()))),
                   _ActionButton(icon: Icons.share_outlined, label: 'Share', count: '231'),
                   _ActionButton(icon: Icons.bookmark_border, label: 'Saved', count: '12'),
                 ],
@@ -210,7 +220,7 @@ class PostCard extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(
                 child: GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => CommentsScreen())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CommentsScreen())),
                   child: Container(
                     height: 40,
                     padding: EdgeInsets.symmetric(horizontal: 16),
@@ -247,3 +257,4 @@ class _ActionButton extends StatelessWidget {
     );
   }
 }
+//dfasdfasfdf
