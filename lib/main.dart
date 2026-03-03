@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:gradly/postScreen.dart';
 import 'home_screen.dart';
 
 void main() {
@@ -13,13 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage(),
-
+      title: 'Gradly',
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        scaffoldBackgroundColor: Color(0xFFF2F2F2),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), // Sets the color scheme.
+      ),
+      home: HomePage(), // Sets the initial screen of the app.
     );
   }
 }
-
-
-// git push testing
-// git push testing 2
