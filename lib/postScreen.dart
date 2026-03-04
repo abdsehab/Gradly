@@ -129,7 +129,7 @@ class _PostButton extends StatelessWidget {
           onPressed: isEnabled ? onPressed : null,
           style: TextButton.styleFrom(
             backgroundColor: isEnabled
-                ? const Color(0xffEFEFEF)
+                ? const Color(0xFFFD6220)
                 : Colors.black12,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             shape: RoundedRectangleBorder(
@@ -141,7 +141,7 @@ class _PostButton extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: isEnabled ? const Color(0xff1C1E21) : Colors.black38,
+              color: isEnabled ? const Color(0xFFFFFFFF) : Colors.black38,
             ),
           ),
         ),
@@ -176,7 +176,7 @@ class _AttachmentBar extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.photo_library_outlined,
-                        color: Color(0xff4CB35E),
+                        color: Color(0xFFFD6220),
                         size: 28,
                       ),
                       SizedBox(width: 10),
