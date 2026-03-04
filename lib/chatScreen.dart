@@ -438,9 +438,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
   }
 }
 
-// =============================================================================
-// MESSAGE BUBBLE
-// =============================================================================
+// message bubble
 
 class _MessageBubble extends StatelessWidget {
   final ChatMessage message;
@@ -457,7 +455,6 @@ class _MessageBubble extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 4),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         constraints: BoxConstraints(
-          // Bubbles won't stretch beyond 70% of the screen width
           maxWidth: MediaQuery.of(context).size.width * 0.70,
         ),
         decoration: BoxDecoration(
@@ -481,9 +478,9 @@ class _MessageBubble extends StatelessWidget {
   }
 }
 
-// =============================================================================
+
 // CHAT INPUT BAR (bottom of ChatDetailScreen)
-// =============================================================================
+
 
 class _ChatInputBar extends StatelessWidget {
   final TextEditingController controller;
