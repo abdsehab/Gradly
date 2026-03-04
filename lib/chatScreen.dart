@@ -200,7 +200,7 @@ class _ChatSearchBar extends StatelessWidget {
         child: const TextField(
           decoration: InputDecoration(
             icon: Icon(Icons.search, color: Colors.grey),
-            hintText: 'Search Messenger',
+            hintText: 'Search Messages',
             border: InputBorder.none,
           ),
         ),
