@@ -23,6 +23,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,49 +59,58 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-        body: _selectedIndex == 1 ? ConnectScreen(showAppBar: false) : ListView(
-        padding: EdgeInsets.only(bottom: 100),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) => setState(() => _selectedIndex = index),
         children: [
-          Container(height: 1, color: primaryColor.withValues(alpha: 0.2)),
-          Padding(
-            padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
-            child: Row(children: [
-              GestureDetector(
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
-                child:
-                CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
-              ),
-              SizedBox(width: 10),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(25), border: Border.all(color: Colors.black12)),
-                    child: Text('Share your thoughts...', style: TextStyle(color: textLight, fontSize: 15)),
+          ListView(
+            padding: EdgeInsets.only(bottom: 100),
+            children: [
+              Container(height: 1, color: primaryColor.withValues(alpha: 0.2)),
+              Padding(
+                padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
+                child: Row(children: [
+                  GestureDetector(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
+                    child: CircleAvatar(backgroundColor: primaryColor, radius: 22, child: Text('T', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
                   ),
-                ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(25), border: Border.all(color: Colors.black12)),
+                        child: Text('Share your thoughts...', style: TextStyle(color: textLight, fontSize: 15)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+                    child: Icon(Icons.photo_library_rounded, color: Color(0xFF000000), size: 26),
+                  ),
+                ]),
               ),
-              SizedBox(width: 10),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                child: Icon(Icons.photo_library_rounded, color: Color(0xFF000000), size: 26),
-              ),
-            ]),
+              PostCard(userName: 'Maruf Hasan Tawhid', userInitial: 'M', timeAgo: '5 hours ago', caption: 'Dummy Post 1', images: ['https://picsum.photos/id/1018/600/400', 'https://picsum.photos/id/1015/600/400']),
+              PostCard(userName: 'Abdullah Al Sehab', userInitial: 'A', timeAgo: '2 hours ago', caption: 'Dummy Post 2', images: ['https://picsum.photos/id/1019/600/400']),
+              PostCard(userName: 'Sadnan Samim', userInitial: 'S', timeAgo: 'Just now', caption: 'Dummy Post 3'),
+            ],
           ),
-          PostCard(userName: 'Maruf Hasan Tawhid', userInitial: 'M', timeAgo: '5 hours ago', caption: 'Dummy Post 1', images: ['https://picsum.photos/id/1018/600/400', 'https://picsum.photos/id/1015/600/400']),
-          PostCard(userName: 'Abdullah Al Sehab', userInitial: 'A', timeAgo: '2 hours ago', caption: 'Dummy Post 2 ️', images: ['https://picsum.photos/id/1019/600/400']),
-          PostCard(userName: 'Sadnan Samim', userInitial: 'S', timeAgo: 'Just now', caption: 'Dummy Post 3'),
+          ConnectScreen(showAppBar: false),
+          SizedBox.shrink(), // index 2 = Post (opens dialog, no body needed)
+          AlertsScreen(),
+          ChatListScreen(),
         ],
       ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 16),
+          margin: EdgeInsets.fromLTRB(16, 0, 16, 12),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
-            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.99), blurRadius: 50, offset: Offset(0, 8))],
+            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.5), blurRadius: 30, offset: Offset(0, 8))],
           ),
           child: Theme(
             data: Theme.of(context).copyWith(
@@ -116,8 +126,7 @@ class _HomePageState extends State<HomePage> {
               currentIndex: _selectedIndex,
               onTap: (index) {
                 if (index == 2) { Navigator.push(context, MaterialPageRoute(builder: (_) => const CreatePostScreen())); return; }
-                if (index == 3) { Navigator.push(context, MaterialPageRoute(builder: (_) => const AlertsScreen())); return; }
-                if (index == 4) { Navigator.push(context, MaterialPageRoute(builder: (_) => const ChatListScreen())); return; }
+                _pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
                 setState(() => _selectedIndex = index);
               },
               type: BottomNavigationBarType.fixed,
@@ -259,4 +268,3 @@ class _ActionButton extends StatelessWidget {
     );
   }
 }
-//dfasdfasfdf
