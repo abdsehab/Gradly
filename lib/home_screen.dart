@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                    child: Icon(Icons.photo_library_rounded, color: Color(0xFF000000), size: 26),
+                    child: Icon(Icons.photo_library_rounded, color: Color(0xFFFD6220), size: 26),
                   ),
                 ]),
               ),
