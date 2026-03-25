@@ -10,7 +10,6 @@ class RegistrationScreen extends StatelessWidget {
     const primaryOrange = Color(0xFFFD6220);
     const lightOrange = Color(0xFFFF9E40);
     const darkText = Color(0xFF2D2D2D);
-    const greyFill = Color(0xFFF4F5F7);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -30,12 +29,10 @@ class RegistrationScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 28,
-                    height: 28,
-                  ),
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 28,
+                  height: 28,
                 ),
                 const SizedBox(width: 12),
                 const Text(

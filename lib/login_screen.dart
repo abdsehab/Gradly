@@ -22,12 +22,10 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Branding
-                Container(
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 32,
-                    height: 32,
-                  ),
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 32,
+                  height: 32,
                 ),
                 const SizedBox(width: 14),
                 const Text(
