@@ -23,14 +23,13 @@ class LoginScreen extends StatelessWidget {
               children: [
                 // Branding
                 Container(
-                  padding: EdgeInsets.all(2),
                   child: Image.asset(
                     'assets/images/logo.png',
                     width: 32,
                     height: 32,
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: 14),
                 const Text(
                   'Gradly',
                   style: TextStyle(
@@ -57,6 +56,7 @@ class LoginScreen extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
+                labelStyle: const TextStyle(color: Color(0xFF808080)),
                 contentPadding: EdgeInsets.only(left: 20),
                 suffixIcon: const Icon(Icons.email, color: primaryOrange),
                 enabledBorder: OutlineInputBorder(
@@ -75,6 +75,7 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
+                labelStyle: const TextStyle(color: Color(0xFF808080)),
                 contentPadding: EdgeInsets.only(left: 20),
                 suffixIcon: const Icon(Icons.visibility_off, color: primaryOrange,),
                 enabledBorder: OutlineInputBorder(
@@ -89,7 +90,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             // Sign In Button
-            Container(
+            SizedBox(
               height: 56,
               width: double.infinity,
               child: ElevatedButton(
@@ -129,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                 )
             ),
             const SizedBox(height: 40),
-            // Register
+            // Move to Registration Screen
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -139,7 +140,7 @@ class LoginScreen extends StatelessWidget {
               },
               child: RichText(
                   text: TextSpan(
-                    text: "Don't have any account?",
+                    text: "Don't have any account? ",
                     style: TextStyle(
                       color: Colors.grey
                     ),

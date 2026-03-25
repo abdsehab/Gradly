@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gradly/login_screen.dart';
 import 'home_screen.dart';
-import 'login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -16,203 +16,168 @@ class RegistrationScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: darkText, size: 20),
-          onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios_new, size: 20)
         ),
       ),
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Branding
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Branding
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        width: 28,
-                        height: 28,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Gradly',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF2D2D2D),
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 28),
-
-                // Title
-                const Text(
-                  'Create Account',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF2D2D2D),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                const SizedBox(height: 12),
-                const Text(
-                  'Join Gradly and start your journey',
-                  style: TextStyle(color: Colors.grey, fontSize: 15),
-                ),
-                const SizedBox(height: 40),
-
-                // Name Field
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Full Name',
-                    labelStyle: const TextStyle(color: darkText, fontSize: 14),
-                    hintText: 'John Snow',
-                    hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    suffixIcon: const Icon(Icons.person_outline, color: primaryOrange),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: const BorderSide(color: lightOrange, width: 1.5),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: const BorderSide(color: primaryOrange, width: 2),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                // Email Field
-                TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: const TextStyle(color: darkText, fontSize: 14),
-                    hintText: 'john@gmail.com',
-                    hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    suffixIcon: const Icon(Icons.email_outlined, color: primaryOrange),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: const BorderSide(color: lightOrange, width: 1.5),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: const BorderSide(color: primaryOrange, width: 2),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                // Password Field
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: const TextStyle(color: darkText, fontSize: 14),
-                    hintText: '**********',
-                    hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    suffixIcon: const Icon(Icons.visibility_off, color: Colors.grey),
-                    filled: true,
-                    fillColor: greyFill,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 32),
-
-                // Sign Up Button
                 Container(
-                  width: double.infinity,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(28),
-                    gradient: const LinearGradient(
-                      colors: [lightOrange, primaryOrange],
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: primaryOrange,
-                        blurRadius: 2,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate to the Home Screen
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                    ),
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 28,
+                    height: 28,
                   ),
                 ),
-                const SizedBox(height: 32),
-
-                // Back to Login Screen
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: RichText(
-                    text: const TextSpan(
-                      text: "Already have an account? ",
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
-                      children: [
-                        TextSpan(
-                          text: 'Login',
-                          style: TextStyle(
-                            color: primaryOrange,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
+                const SizedBox(width: 12),
+                const Text(
+                  'Gradly',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: darkText
                   ),
-                ),
-                const SizedBox(height: 20),
+                )
               ],
             ),
-          ),
+            const SizedBox(height: 28),
+            // Title
+            const Text(
+              'Create Account',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 24),
+            // Welcome Text
+            const Text(
+              'Join Gradly and start your journey',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.grey
+              ),
+            ),
+            const SizedBox(height: 40),
+            // Name Input Field
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Full Name',
+                labelStyle: const TextStyle(color: Color(0xFF808080)),
+                contentPadding: EdgeInsets.only(left: 20),
+                suffixIcon: const Icon(Icons.person_outlined, color: primaryOrange),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: lightOrange, width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: primaryOrange, width: 2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            // Email Input Field
+            TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                labelStyle: const TextStyle(color: Color(0xFF808080)),
+                contentPadding: EdgeInsets.only(left: 20),
+                suffixIcon: const Icon(Icons.email_outlined, color: primaryOrange),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: lightOrange, width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: primaryOrange, width: 2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            // Password Input Field
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                labelStyle: const TextStyle(color: Color(0xFF808080)),
+                contentPadding: EdgeInsets.only(left: 20),
+                suffixIcon: const Icon(Icons.visibility_off_outlined, color: primaryOrange,),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: lightOrange, width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(color: primaryOrange, width: 2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+            // Sign Up Button
+            SizedBox(
+              height: 56,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomePage()
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryOrange
+                ),
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+            // Back to Login Screen
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen())
+                );
+              },
+              child: RichText(
+                  text: TextSpan(
+                    text: 'Already have an account? ',
+                    style: TextStyle(
+                        color: Colors.grey
+                    ),
+                    children: [
+                      const TextSpan(
+                          text: 'Login',
+                          style: TextStyle(
+                              color: primaryOrange,
+                              fontWeight: FontWeight.w500
+                          )
+                      ),
+                    ],
+                  )
+              ),
+            ),
+            const SizedBox(height: 30)
+          ],
         ),
       ),
     );
