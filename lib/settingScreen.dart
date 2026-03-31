@@ -1,85 +1,35 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class settingScreen extends StatelessWidget {
+  const settingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Settings & privacy',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        children: [
-          _buildSettingsTile(
-            icon: Icons.settings,
-            title: 'Settings',
-            onTap: () {},
-          ),
-          _buildSettingsTile(
-            icon: Icons.language,
-            title: 'Language',
-            onTap: () {},
-          ),
-          _buildSettingsTile(
-            icon: Icons.privacy_tip,
-            title: 'Privacy checkup',
-            onTap: () {},
-          ),
-          _buildSettingsTile(
-            icon: Icons.lock,
-            title: 'Privacy Center',
-            onTap: () {},
-          ),
-          _buildSettingsTile(
-            icon: Icons.list_alt,
-            title: 'Activity log',
-            onTap: () {},
-          ),
-        ],
-      ),
-    );
-  }
+    const primaryOrange = Color(0xFFFD6220);
+    const lightOrange = Color(0xFFFF9E40);
+    const darkText = Color(0xFF2D2D2D);
 
-  Widget _buildSettingsTile({
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-    bool hasTrailing = false,
-  }) {
-    return ListTile(
-      onTap: onTap,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      leading: CircleAvatar(
-        backgroundColor: Colors.grey.shade200,
-        child: Icon(icon, color: Colors.black87, size: 22),
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "Settings ",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
+        backgroundColor: lightOrange,
       ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
+      body: Container(
+        child: ListView(
+          children: [
+            ListTile(title: Text("Personal Details"), onTap: () {}),
+            ListTile(title: Text("Password"), onTap: () {}),
+            ListTile(title: Text("Media Center"), onTap: () {}),
+            ListTile(title: Text("Ads Center"), onTap: () {}),
+            ListTile(title: Text("Dark Mode"), onTap: () {}),
+          ],
         ),
       ),
-      trailing: hasTrailing
-          ? const Icon(Icons.arrow_forward_ios, color: Colors.black45, size: 16)
-          : null,
     );
   }
 }
