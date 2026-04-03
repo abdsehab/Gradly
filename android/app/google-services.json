@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "473185453950",
+    "project_id": "gradly-661dd",
+    "storage_bucket": "gradly-661dd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473185453950:android:0435567d544584bc2e552f",
+        "android_client_info": {
+          "package_name": "com.example.gradly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_w8wt2ZjDjw_R6WEj7UQZfsDb0hzUin8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
