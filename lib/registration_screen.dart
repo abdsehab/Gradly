@@ -31,10 +31,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-
-      // Updating the display name
-      await userCredential.user?.updateDisplayName(_nameController.text.trim());
-
       // Navigate to Home Screen after reg
       if (mounted) {
         Navigator.pushReplacement(
@@ -92,7 +88,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 )
               ],
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: 18),
             // Title
             const Text(
               'Create Account',
@@ -101,7 +97,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             // Welcome Text
             const Text(
               'Join Gradly and start your journey',
@@ -110,26 +106,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 color: Colors.grey
               ),
             ),
-            const SizedBox(height: 40),
-            // Name Input Field
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: 'Full Name',
-                labelStyle: const TextStyle(color: Color(0xFF808080)),
-                contentPadding: EdgeInsets.only(left: 20),
-                suffixIcon: const Icon(Icons.person_outlined, color: primaryOrange),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: const BorderSide(color: lightOrange, width: 1.5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: const BorderSide(color: primaryOrange, width: 2),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 35),
+
             // Email Input Field
             TextField(
               controller: _emailController,
@@ -216,7 +194,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   )
               ),
             ),
-            const SizedBox(height: 30)
+            const SizedBox(height: 70)
           ],
         ),
       ),
