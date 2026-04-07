@@ -15,7 +15,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -26,10 +25,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   Future<void> _register() async {
-    setState(() {
-      _isLoading = true;
-    });
-
     try {
       // Creating User
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -37,24 +32,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         password: _passwordController.text.trim(),
       );
 
-      // Update the display name
+      // Updating the display name
       await userCredential.user?.updateDisplayName(_nameController.text.trim());
 
-      // Navigate to Home Screen when login successful
+      // Navigate to Home Screen after reg
       if (mounted) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
       }
-    }
-    finally {
+    } on FirebaseAuthException catch (e) {
+      // Error message on reg failure
       if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message ?? 'An error occurred during registration.')),
+        );
       }
-    }
+}
   }
 
   @override
@@ -180,17 +175,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 56,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: _isLoading ? null : _register,
+                onPressed: _register,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryOrange,
                 ),
-                child: _isLoading
-                    ? const SizedBox(
-                  height: 24,
-                  width: 24,
-                  child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
-                )
-                    : const Text(
+                child: const Text(
                   'Sign Up',
                   style: TextStyle(
                       color: Colors.white,
