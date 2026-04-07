@@ -1,9 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gradly/login_screen.dart';
 import 'home_screen.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
+
+  @override
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _register() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      // Creating User
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      // Update the display name
+      await userCredential.user?.updateDisplayName(_nameController.text.trim());
+
+      // Navigate to Home Screen when login successful
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      }
+    }
+    finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +117,7 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(height: 40),
             // Name Input Field
             TextField(
+              controller: _nameController,
               decoration: InputDecoration(
                 labelText: 'Full Name',
                 labelStyle: const TextStyle(color: Color(0xFF808080)),
@@ -84,6 +136,7 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(height: 20),
             // Email Input Field
             TextField(
+              controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -103,6 +156,7 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(height: 20),
             // Password Input Field
             TextField(
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -125,18 +179,17 @@ class RegistrationScreen extends StatelessWidget {
               height: 56,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomePage()
-                    ),
-                  );
-                },
+                onPressed: _isLoading ? null : _register,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: primaryOrange
+                  backgroundColor: primaryOrange,
                 ),
-                child: const Text(
+                child: _isLoading
+                    ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                )
+                    : const Text(
                   'Sign Up',
                   style: TextStyle(
                       color: Colors.white,
