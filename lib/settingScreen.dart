@@ -22,11 +22,31 @@ class settingScreen extends StatelessWidget {
       body: Container(
         child: ListView(
           children: [
-            ListTile(title: Text("Personal Details"), onTap: () {}),
-            ListTile(title: Text("Password"), onTap: () {}),
-            ListTile(title: Text("Media Center"), onTap: () {}),
-            ListTile(title: Text("Ads Center"), onTap: () {}),
-            ListTile(title: Text("Dark Mode"), onTap: () {}),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Personal Details"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.password),
+              title: Text("Password"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.video_camera_front_outlined),
+              title: Text("Media Center"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.ads_click),
+              title: Text("Ads Center"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.dark_mode),
+              title: Text("Dark Mode"),
+              onTap: () {},
+            ),
           ],
         ),
       ),

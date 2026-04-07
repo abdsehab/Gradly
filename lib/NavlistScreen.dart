@@ -24,6 +24,7 @@ class Navlistscreen extends StatelessWidget {
         child: ListView(
           children: [
             ListTile(
+              leading: Icon(Icons.settings),
               title: Text("Settings"),
               onTap: () {
                 Navigator.push(
@@ -32,10 +33,21 @@ class Navlistscreen extends StatelessWidget {
                 );
               },
             ),
-            ListTile(title: Text("Settings"), onTap: () {}),
-            ListTile(title: Text("Privacy Center"), onTap: () {}),
-            ListTile(title: Text("Activity Log"), onTap: () {}),
-            ListTile(title: Text("Logout"), onTap: () {}),
+            ListTile(
+              leading: Icon(Icons.privacy_tip_outlined),
+              title: Text("Privacy Center"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.access_time_filled),
+              title: Text("Activity Log"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              onTap: () {},
+            ),
           ],
         ),
       ),
