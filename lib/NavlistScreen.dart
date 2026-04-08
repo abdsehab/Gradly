@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gradly/settingScreen.dart';
+import 'login_screen.dart';
 
 class Navlistscreen extends StatelessWidget {
   const Navlistscreen({super.key});
@@ -46,7 +48,15 @@ class Navlistscreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text("Logout"),
-              onTap: () {},
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (route) => false,
+                );
+              },
             ),
           ],
         ),
